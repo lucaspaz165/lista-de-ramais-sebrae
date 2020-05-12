@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block title %}Editar Perfil{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+
+<section>
+        <div class="col-md-6 offset-md-3">
+                <div class="card auth-card">
+                        <div class="card-body">
+                            <h2 align="center"><b>Editar Perfil</b></h2>
+                                <form method="POST"  enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{form|crispy}}
+                                        <br>
+
+                                    {% if request.user.is_superuser %}
+                                        <div id="div_id_admin" class="form-group">
+                                            <label for="id_admin" class="col-form-label ">Admin</label>
+                                            <div class="">
+                                                <select name="admin" class="nullbooleanselect form-control" id="id_admin">
+                                                    {% if ramais_form.user.is_superuser %}
+                                                        <option value="true">Sim</option>
+                                                         <option value="false">Não</option>
+                                                    {% else %}
+                                                        <option value="false">Não</option>
+                                                        <option value="true">Sim</option>
+                                                      {% endif%}
+                                                </select>
+                                           </div> </div>
+                                    {% endif %}
+                                    <br>
+                                    <button type="submit" class="btn btn-primary btn-block">Editar</button>
+
+                                </form>
+                        </div>
+                </div>
+        </div>
+</section>
+<br>
+<br>
+<br>
+
+{% endblock %}
+

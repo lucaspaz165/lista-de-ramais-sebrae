@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}{{nome}}{% endblock %}
+
+{% block content %}
+
+
+{% if user.is_superuser %}
+    {% for unidade in unidades %}
+        {% if user.ramais.unidade.sigla == unidade.sigla  %}
+            {% if unidade.sigla == nome %}
+<h4><a href="/editar-unidade/{{unidade.id}}">Editar unidade</a></h4>
+            {% endif %}
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+{% for unidades in unidade %}
+    {% if unidades.unidade__sigla == nome %}
+    <div align="center" >
+    <br>
+    <br>
+    <h1><b>{{unidades.unidade__nome_completo}} - {{unidades.unidade__sigla}}</b></h1>
+        <br>
+        <br>
+        <h4>{{unidades.unidade__descrição}}</h4>
+    </div>
+<br>
+
+
+<div class="container">
+
+    <h4>Membros :</h4>
+
+          <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                  <th>Foto</th>
+                <th>Nome</th>
+                <th>Ramal</th>
+                <th>E-mail</th>
+                <th>Whatsapp</th>
+                <th>Aniversário</th>
+                  <th>Função</th>
+                   {% if user.is_superuser %}
+                        <th>Edição</th>
+                    {%endif%}
+              </tr>
+            </thead>
+            <tbody>
+            {% for ramal in ramais %}
+                {% if ramal.unidade.sigla == nome %}
+                <td><img src="/media/{{ramal.foto}}" class = "img-div"  alt ="foto-do-perfil"></td>
+                <td>{{ramal.nome}}</td>
+                <td>{{ramal.ramal}}</td>
+                <td>{{ramal.user.email}}</td>
+                <td>{{ramal.whatsapp}}</td>
+                <td> {{ramal.dia_de_nascimento}}/{{ramal.mes_de_nascimento}}</td>
+                <td>{{ramal.Função}}</td>
+                  {% if user.is_superuser %}
+                                {% for unidade in unidades %}
+                                    {% if forloop.first %}
+                                        {% if user.ramais.unidade == ramal.unidade %}
+                                             <td><a href = "/editar-perfil/{{ramal.id}}"><i class="fas fa-clipboard-list"></i></a> &nbsp<a href="/delete/{{ramal.user.id}}" class="confirmar" onclick="return confirm('Voce deseja deletar esse ramal ?')"> <i class="fas fa-trash"></i></a></td>
+                                        {% else %}
+                                            <td>Sem permissão</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+              </tr>
+            </tbody>
+  {%endif%}
+              {%endfor%}
+
+          </table>
+          </div>
+        </div>
+<br>
+
+ {%endif%}
+{%endfor%}
+
+<div>
+     <br>
+     <br>
+     <br>
+     <br>
+</div>
+{% endblock %}

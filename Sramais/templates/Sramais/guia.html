@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Sobre{% endblock %}
+{% block content %}
+<div>
+     <br>
+     <br>
+
+</div>
+
+<h1 align="center"><b>Guia de orientação do uso dos ramais</b></h1>
+<div>
+     <br>
+     <br>
+
+</div>
+
+<div align="center">
+     <table class="tabela-2">
+         <tr>
+             <th>Comando</th>
+             <th>Descrição</th>
+         </tr>
+         <tr>
+             <td>Transferir Ligações</td>
+             <td> Pressione a tecla FLASH + ramal desejado e caso o ramal estiver ocupado ou não atender, digite FLASH +14 para recuperar a chamada</td>
+         </tr>
+         <td>Captura de chamada de ramal</td>
+         <td>Digite *60 + RAMAL</td>
+        <tr>
+             <td>Chamar o último número que ligou para o seu ramal</td>
+             <td>Digite 103</td>
+        </tr>
+         <tr>
+             <td>Rediscagem externa </td>
+             <td>Solicita ao sistema automaticamente a rediscagem do último número discado externamente .Digite 11</td>
+        </tr>
+         <tr>
+             <td>Recupera ligação em espera</td>
+             <td>Digite FLASH +14</td>
+        </tr>
+         <tr>
+             <td>Hora certa</td>
+             <td>Disque esse código para ouvir do sistema o horário atual. Digite #130</td>
+        </tr>
+         <tr>
+             <td>Número de Acesso</td>
+             <td> Disque esse código para ouvir do sistema ISION IP o seu próprio número de ramal. Digite #100</td>
+        </tr>
+        <tr>
+             <td> Permuta de Ramais</td>
+             <td>Disque *84 + duas vezes o número do ramal que deverá ficar no local.</td>
+        </tr>
+        <tr>
+             <td>Siga-me(Vem-cá)</td>
+             <td>*821 + número do ramal de origem + número de ramal de origem(Para desfazer: *822 no ramal de origem)</td>
+        </tr>
+        <tr>
+             <td> Siga-me(Vai-lá)</td>
+             <td>*823 + número do ramal de destino + número de ramal de origem(Para desfazer: *822 )</td>
+        </tr>
+       <tr>
+             <td>Não pertube</td>
+             <td>Ramal IP: Tecla DND + número +# / Ramal analógico: *839+ número de ramal (Para desfazer)</td>
+        </tr>
+
+
+     </table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ </div>
+
+    {% endblock %}

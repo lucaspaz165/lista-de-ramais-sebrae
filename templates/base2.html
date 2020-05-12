@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+
+<head>
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta content="width=device-width, initial-scale=1" name="viewport" /> <!-- para usar para media -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="{%  static 'imagens/favicon.ico' %}">
+    <style>
+
+
+</style>
+</head>
+
+<body>
+
+    <header> <!-- CABEÇALHO -->
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #005296;">
+             <img src="{% static 'imagens/i.jpeg' %}"  class="logo"  alt="logo-img">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+               </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                  <li class="nav-item">
+                        <a class="nav-link" href="/" style="color:white">Início</a>
+                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/guia/" style="color:white">Guia&nbsp&nbsp&nbsp&nbsp</a>
+                    </li>
+                        {% if user.is_authenticated %}
+                             <li class="nav-item dropdown">
+                                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" style="color:white">&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-user"></i><b>&nbsp&nbsp{{user}}</b></a>
+
+                             <ul class="dropdown-menu">
+                                                {% for ramal in ramais.all %}
+                                                    {% if request.user.username == ramal.user.username %}
+                                                            <li><a href="/editar-usuario/{{user.id}}"> Editar Usuário </a></li>
+                                                            <li><a href="/editar-perfil/{{ramal.id}}"> Editar Perfil</a></li>
+                                                        {% endif%}
+                                                        {% endfor %}
+                                                    <li><a href="accounts/logout/">Sair</a></li>
+                                                    {% if user.is_superuser%}
+                                                        <li><a href="/adicionar/">Adicionar um ramal</a><li>
+                                                        <li><a href="/cadastro/" >Adicionar uma Unidade</a></li>
+                                                    {% endif %}
+
+
+                             </ul>
+    </li>
+                        {% else %}
+                 <li class="nav-item">
+                    <a class="nav-link" href="/accounts/login/" style="color:white">Entrar</a>
+                </li>
+                        {% endif %}
+              </ul>
+          </div>
+
+        </div>
+      </nav>
+
+
+    </header> <!--FIM DO CABEÇALHO-->
+
+<div>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+{%block content%}{%endblock%}
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+    <footer class="rodape">
+     <img src="{% static 'imagens/i.jpeg' %}" alt="logo-sebrae" class="logo-footer">  <!-- -->
+    <nav class="nav-footer">
+        <ul>
+            <li><a href="/" style="color:white">Inicio</a></li>
+            <li><a href="/guia/" style="color:white">Guia</a></li>
+
+        </ul>
+    </nav>
+
+    <section class="copyright">
+            <h2>Direitos</h2>
+            <p>&nbsp&nbspCopyright - Todos os direitos reservados | Desenvolvido por Lucas Paz</p>
+    </section>
+
+</footer> <!-- FIM DO RODAPÉ -->
+    <!--- SCRIPT DA MASCARA -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
+
+
+</body>
+</html>

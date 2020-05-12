@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}Editar Unidade{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+<section>
+        <div class="col-md-6 offset-md-3">
+                <div class="card auth-card">
+                        <div class="card-body">
+                            <h2 align="center"><b>Editar unidade</b></h2>
+                                <form method="POST"  enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{form|crispy}}
+                                        <br>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary btn-block">Editar</button>
+                                </form>
+                        </div>
+                </div>
+        </div>
+</section>
+<br>
+<br>
+<br>
+{%endblock%}

@@ -1,0 +1,249 @@
+body{
+    font-family:Arial;
+    height:100%;
+    margin:0;
+    position:relative;
+    margin-bottom:50px;
+
+}
+-moz-margin:0px;
+-webkit-margin:0px;
+
+
+.edcar_letter{
+    font-size:180px;
+}
+.nav-item{
+    padding-right:40px;
+}
+.fas.fa-search { /*ICONE DE PESQUISA*/
+            color : #7D7C78;
+        }
+
+#menu{ /* MENU */
+    position: relative;
+    background: #005296;
+    float:right;
+    top:8px;
+
+
+}
+
+h1{
+  font-weight:bold;
+}
+
+
+header{ /* CABEÇALHO */
+    float: left;
+    background-color: #005296;
+    width:100%;
+
+}
+
+.logo { /* LOGOTIPO */
+    float:left;
+    height: 68px;
+    margin-left:10px;
+}
+
+.logo-footer { /* LOGOTIPO */
+    float:left;
+    height: 68px;
+    display:block
+    
+}
+
+
+li a:hover{ /* passando o mouse no menu */
+    background-color: #007CC7;
+    text-decoration: none;
+    padding:10px;
+    color: white;
+    font-size:18px;
+
+}
+
+#search{
+
+    width:250px;
+    height:40px;
+    border-radius: 30px;
+    font-size:15px;
+    font-weight:bold;
+
+
+
+}
+ul{ /* LISTA DO MENU*/
+    list-style-type: none;
+    color: white;
+}
+
+a{ /* LINKS*/
+    text-decoration: none;
+    color: white;
+
+}
+.bolo-img{
+    width:38px;
+    margin-left:8px;
+}
+#tabela-aniversario{ /* ESTILIZAÇÃO DA TABELA DE ANIVERSÁRIO */
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align:left;
+    width: 80%;
+    overflow-x:auto;
+
+}
+.th-ani,.td-ani{ /* ESTILIZAÇÃO DA TABELA DE ANIVERSÁRIO */
+    text-align: left;
+    padding: 15px;
+}
+.img-div{
+     border-radius: 50px;
+    height: 45px;
+    overflow: hidden;
+    width: 45px;
+}
+
+.parabens{
+    font-size:30px;
+}
+
+.table-responsive{ /*TABELA DOS RAMAIS*/
+    border: 1px solid #ddd;
+    overflow: scroll;
+    overflow: auto;
+    text-align:center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 50%;
+
+}
+
+.container-fluid .row {
+    margin: 0;
+}
+.copyright{
+    text-align:center;
+    color: white;
+}
+
+}
+
+.container-fluid .row {
+    margin: 0;
+}
+
+.img2-div {
+    border-radius: 100px;
+    height: 45px;
+    overflow: hidden;
+    width: 45px;
+    margin-right:3px;
+}
+
+.card auth-card{
+    border: 5px solid #ddd;
+
+}
+
+
+.tabela-2{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th, td {
+
+  padding: 20px;
+}
+
+.add-div {
+    background-color: #3476e2;
+    cursor: pointer;
+    display: inline-block;
+    color: #FFF;
+    padding: 8px;
+    border-radius: 5px;
+
+    width:180px;
+}
+
+
+::-webkit-scrollbar-track { /*ESTILIZAÇÃO BARRA DE ROLAGEM */
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar { /*ESTILIZAÇÃO BARRA DE ROLAGEM */
+    width: 6px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb { /*ESTILIZAÇÃO BARRA DE ROLAGEM */
+    background: #F4F4F4;
+
+}
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/*DEIXAR O FOOTER LA EMBAIXO */
+html, body{ height:100%; margin:0; }
+
+.rodape{  /*FOOTER*/
+    background: #005296;
+    position:relative;
+    width:100%;
+    height:40%;
+    padding:10px; 8%;
+
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+}
+
+footer{
+  margin-top:auto;
+}/*FIM*/
+
+
+.parabens{ /* "TITULO" PARABENS*/
+    font-size:38px;
+}
+
+.balao1{ /*BALAO DE ANIVERSARIO*/
+
+    width:38px;
+    margin-left:8px;
+}
+
+.balao{/*BALAO DE ANIVERSARIO*/
+
+    width:38px;
+    margin-right:20px;
+}
+
+li {
+    padding:5px;
+    font-weight:bold;
+    font-size:16px;
+    margin:5px;
+    color:black;
+}
+.nav-footer{
+    float:right
+}
+br {
+  line-height: 2rem;
+  height: 2rem;
+}
+

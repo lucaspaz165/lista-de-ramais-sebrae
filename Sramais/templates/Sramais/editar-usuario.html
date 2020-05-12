@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}Editar Usuário{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+    {% if messages %}
+
+   <ul class="messages">
+        {% for message in messages %}
+        <li>{% if message.tags %} Informação : "{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+<div class ="col-md-4 offset-md-4">
+    <div class="card auth-card">
+        <div class="card-body">
+            <h2 align="center"><b>Editar Usuário</b></h2>
+            <br>
+            <form method ="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <br>
+                <button type="submit" class="btn btn-primary btn-block">Editar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+<div>
+     <br>
+     <br>
+     <br>
+</div>
+<section>
+        <div class="col-md-6 offset-md-3">
+                <div class="card auth-card">
+                        <div class="card-body">
+                            <h2 align="center"><b>Registro</b></h2>
+                                <form method="POST" action="." class="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{user_form|crispy}}
+                                        {{form|crispy}}
+                                        <br>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                                </form>
+                        </div>
+                </div>
+        </div>
+</section>
+<div>
+     <br>
+     <br>
+     <br>
+     <br>
+</div>
+
+{% endblock %}

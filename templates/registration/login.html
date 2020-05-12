@@ -1,0 +1,29 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}Entrar{% endblock %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+        <div class="card auth-card">
+            <div class="card-body">
+                <br>
+                <br>
+                <h2 class="card-title text-center"><b>Entrar</b></h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                </form>
+                <br>
+                <br>
+               <p align="center"><b>Não possui uma conta ? <a href="/registro/">Registre-se</a></b></p>
+
+                <p align="center"><b>Esqueceu sua senha ? <a href="/resetar-senha/email/">Resetar senha</a></b></p>
+            </div>
+        </div>
+</div>
+
+
+{%endblock%}

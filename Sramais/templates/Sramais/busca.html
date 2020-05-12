@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}Busca{% endblock %}
+{% block content %}
+
+<br>
+<br>
+
+<h1 align="center"><b>Lista de Ramais Sebrae</b></h1>
+<br>
+<section> <!-- Pesquisa -->
+    <div class="container">
+        <br>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nome</th>
+                        <th>Ramal</th>
+                        <th>Unidade</th>
+                        <th>E-mail</th>
+                        <th>Whatsapp</th>
+                        <th>Aniversário</th>
+                        <th>Função</th>
+                        {% if user.is_superuser %}
+                            <th>Edição</th>
+                        {%endif%}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for pesquisas in pesquisa %}
+                            {% for ramal in ramais %}
+                                {% if ramal.unidade.sigla == pesquisas.sigla or ramal.nome == pesquisas.nome %}
+                        <td><img src="/media/{{ramal.foto}}" alt="foto-de-perfil"class = "img-div"></td>
+                            <td>{{ramal.nome}}</td>
+                            <td>{{ramal.ramal}}</td>
+                            <td>{{ramal.unidade}}</td>
+                            <td>{{ramal.user.email}}</td>
+                            <td>{{ramal.whatsapp}}</td>
+                            <td> {{ramal.dia_de_nascimento}}/{{ramal.mes_de_nascimento}}</td>
+                            <td>{{ramal.Função}}</td>
+                              {% if user.is_superuser %}
+                                {% for unidade in unidades %}
+                                    {% if forloop.first %}
+                                        {% if user.ramais.unidade == ramal.unidade %}
+                                             <td><a href = "/editar-perfil/{{ramal.id}}"><i class="fas fa-clipboard-list"></i></a> &nbsp<a href="/delete/{{ramal.user.id}}" class="confirmar" onclick="return confirm('Voce deseja deletar esse ramal ?')"> <i class="fas fa-trash"></i></a></td>
+                                        {% else %}
+                                            <td>Sem permissão</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                    </tr>
+                </tbody>
+                {% endif %}
+                {% endfor %}
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{%  endblock %}
